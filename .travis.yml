@@ -1,0 +1,31 @@
+language: cpp
+distro: trusty
+sudo: required
+
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+        packages:
+            - gcc-4.8
+            - gcc-4.9
+            - gcc-5
+            - gcc-6
+            - cmake
+            - python3
+            - python3-pip
+
+
+env:
+    global:
+        - CONAN_UPLOAD=1
+        - CONAN_GCC_VERSIONS="4.8,4.9,5,6"
+        - 
+    - BUILD_TYPE=Debug
+    - BUILD_TYPE=Release
+    
+install:
+    - sudo pip3 install conan conan_package_tools
+
+script:
+    - ./run.py
