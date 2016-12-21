@@ -1,5 +1,5 @@
 language: cpp
-distro: trusty
+dist: trusty
 sudo: required
 
 addons:
