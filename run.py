@@ -11,7 +11,7 @@ if __name__ == "__main__":
         builder.add_common_builds(visual_versions=[14])
     
     if platform.system() == "Linux":
-        for ver in ["4.8", "4.9", "5.2", "5.3"]:
+        for ver in ["6.2"]:
             for bt in ["Release", "Debug"]:
                 builder.add(
                     {"arch": "x86_64", 

@@ -1,5 +1,7 @@
 from conans import ConanFile, tools, CMake
 import platform, os, sys
+import multiprocessing
+
 
 framework = "KConfig"
 version = "5.29.0"
@@ -38,8 +40,16 @@ class className(ConanFile):
     def build(self):
         cm = CMake(self.settings)
         
-        self.run("cmake -DCMAKE_INSTALL_PREFIX=\"%s\" %s %s" % (self.conanfile_directory + "/install", self.conanfile_directory + "/" + self.folder_name, cm.command_line))
-        self.run("cmake --build . %s" % cm.build_config)
+        print(self.folder_name)
+        self.run('cmake -DCMAKE_INSTALL_PREFIX="%s" %s %s' % 
+                 (os.path.join(self.conanfile_directory, "install"), 
+                  self.conanfile_directory + "/" + self.folder_name, 
+                  cm.command_line))
+        if platform.os == "Windows":
+            self.run("cmake --build . %s" % cm.build_config)
+        else:
+            self.run("make -j %d" % multiprocessing.cpu_count())
+        
         self.run("cmake --build . %s --target install" % cm.build_config)
         
     def package(self):
@@ -54,6 +64,4 @@ class className(ConanFile):
         self.copy("*", dst="mkspecs", src="install/mkspecs")
         
         self.copy("*", dst="share", src="install/share")
-        
-        
         
