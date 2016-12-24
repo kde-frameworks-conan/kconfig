@@ -12,7 +12,7 @@ if __name__ == "__main__":
     
     if platform.system() == "Linux":
         for ver in ["6.2"]:
-            for bt in ["Release", "Debug"]:
+            for bt in [ "Release"]:
                 builder.add(
                     {"arch": "x86_64", 
                      "build_type": bt,

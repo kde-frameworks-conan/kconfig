@@ -1,5 +1,4 @@
-from conans.model.conan_file import ConanFile
-from conans import CMake
+from conans import CMake, ConanFile
 import os
 
 
