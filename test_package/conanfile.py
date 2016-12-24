@@ -9,6 +9,7 @@ username = os.getenv("CONAN_USERNAME", "russelltg")
 class DefaultNameConan(ConanFile):
     settings = "os", "compiler", "arch", "build_type"
     requires = "KConfig/5.29.0@%s/%s" % (username, channel)
+    name = "KConfigTest"
     generators = "cmake"
 
     def build(self):

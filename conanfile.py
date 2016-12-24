@@ -21,7 +21,7 @@ class className(ConanFile):
     url = "https://github.com/kde-frameworks-conan/%s" % name
     license = "LGPLv2"
     
-    folder_name=""
+    folder_name = "%s-%s" % (name.lower(), version)
     
     def config_options(self):
         pass
@@ -30,7 +30,6 @@ class className(ConanFile):
         pass
     
     def source(self):
-        self.folder_name = "%s-%s" % (self.name.lower(), self.version)
         zip_name = "%s.zip" % self.folder_name 
         url = "http://download.kde.org/stable/frameworks/%s/%s" % (shortversion, zip_name)
         self.output.info("Downloading %s..." % url)
