@@ -21,9 +21,6 @@ env:
     - CONAN_UPLOAD=1
     - CONAN_GCC_VERSIONS="4.8,4.9,5,6"
     - CONAN_USERNAME=russelltg
-    matrix:
-    - BUILD_TYPE=Debug
-    - BUILD_TYPE=Release
     
 install:
     - sudo pip3 install conan conan_package_tools
