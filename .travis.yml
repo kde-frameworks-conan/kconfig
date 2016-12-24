@@ -23,7 +23,7 @@ env:
     - CONAN_USERNAME=russelltg
     
 install:
-    - sudo pip3 install conan conan_package_tools
+    - pip3 install conan conan_package_tools
     - sudo add-apt-repository ppa:beineri/opt-qt57-trusty -y
     - sudo apt-get update
     - sudo apt-get install qt57base qt57script qt57declarative qt57tools qt57x11extras qt57svg
