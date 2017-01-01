@@ -12,7 +12,7 @@ className = framework + "Conan"
 class className(ConanFile):
     name = framework
     version = version
-    requires = "QtBase/5.7.1@russelltg/stable", "extra-cmake-modules/5.29@russelltg/stable"
+    requires = "QtBase/5.7.1@russelltg/stable", "extra-cmake-modules/5.29.0@russelltg/stable"
     description = "KDE Config framework"
     settings = "os", "arch", "compiler", "build_type"
     
