@@ -8,10 +8,10 @@ if __name__ == "__main__":
     builder = ConanMultiPackager(visual_runtimes=["MT", "MD"])
     
     if platform.system() == "Windows":
-        builder.add_common_builds(visual_versions=[14])
+        builder.add_common_builds()
     
     if platform.system() == "Linux":
-        for ver in ["4.8", "4.9","5.4", "6.2"]:
+        for ver in builder.gcc_versions:
             for bt in [ "Release", "Debug"]:
                 builder.add(
                     {"arch": "x86_64", 
